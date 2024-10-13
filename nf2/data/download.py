@@ -14,7 +14,7 @@ def download_SHARP_series(download_dir, email, t_start, t_end=None, noaa_num=Non
              cadence='720s', segments='Br, Bp, Bt, Br_err, Bp_err, Bt_err', series='sharp_cea_720s'):
     assert sharp_num is not None or noaa_num is not None, 'Either sharp_num or noaa_num must be provided'
     os.makedirs(download_dir, exist_ok=True)
-    client = drms.Client(email=email, verbose=True)
+    client = drms.Client(email=email)#, verbose=True)
     if noaa_num is not None:
         sharp_num = find_HARP(t_start, noaa_num, client)
         print(f'Found HARP number {sharp_num} for NOAA number {noaa_num}')
